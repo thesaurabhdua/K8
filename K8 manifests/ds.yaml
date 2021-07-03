@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  creationTimestamp: null
+  labels:
+    app: es
+  name: es
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: es
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: es
+    spec:
+      containers:
+      - image: k8s.gcr.io/fluentd-elasticsearch:1.20
+        name: fluentd-elasticsearch
